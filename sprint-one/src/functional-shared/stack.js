@@ -18,7 +18,7 @@ var stackMethods = {};
 stackMethods.push = function(value){
   this.stackSize++;
   this.storage[this.stackSize] = value;
-}
+};
 
 stackMethods.pop = function(){
   if (this.stackSize > 0){
@@ -27,8 +27,8 @@ stackMethods.pop = function(){
     this.stackSize--;
     return poppedVal;
   }
-}
+};
 
 stackMethods.size = function(){
   return this.stackSize;
-}
+};
