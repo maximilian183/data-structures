@@ -20,8 +20,9 @@ var Queue = function() {
       var frontVal = storage[back];
       delete storage[back];
       back++;
+      return frontVal;
     }
-    return frontVal;
+
   };
 
   someInstance.size = function() {
