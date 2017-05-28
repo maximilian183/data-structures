@@ -26,12 +26,12 @@ queueMethods.enqueue = function(value) {
 };
 
 queueMethods.dequeue = function() {
-  if((this.front - this.back) > 0) {
+  if ((this.front - this.back) > 0) {
     var val = this.storage[this.back];
     delete this.storage[this.back];
     this.back++;
     return val;
   }
-}
+};
 
 

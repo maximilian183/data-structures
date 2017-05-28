@@ -14,7 +14,7 @@ Queue.prototype.size = function() {
 Queue.prototype.enqueue = function( value ) {
   this.storage [ this.front ] = value;
   this.front++;
-}
+};
 
 Queue.prototype.dequeue = function() {
   if ( (this.front - this.back) > 0){
@@ -23,4 +23,4 @@ Queue.prototype.dequeue = function() {
     this.back ++;
     return val;
   }
-}
+};
