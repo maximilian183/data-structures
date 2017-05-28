@@ -28,17 +28,15 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-
-      var currentNode = list.head;
-      while (currentNode) {
-        if(currentNode.value === target) {
-          return true;
-        } else {
-          currentNode = currentNode.next;
-        }
+    var currentNode = list.head;
+    while (currentNode) {
+      if(currentNode.value === target) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
       }
-      return false;
-
+    }
+    return false;
   };
 
   return list;
@@ -56,64 +54,3 @@ var Node = function(value) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// {
-//   data: 1, next: {
-//     data: 2, next: {
-//       data: 4, next: null;
-//     }
-// }}
-
-// addToTail("usa");
-
-// var list = {
-
-//   '5': {node.value = 'world', node.next = "forthe"},
-//   'forthe': {node.value = 'world', node.next = "insert"},
-//   '3': {node.value = 'information', node.next = 'usa'},
-//   '1': {node.value = 'hi', node.next = "2"},               // head
-//   '2': {node.value = 'world', node.next = "5"},
-//    'usa': {node.value = 'usa', node.next = null},          //tail
-//   'insert': {node.value = 'world', node.next = "3"},
-//   head = '1',
-//   tail = 'usa'
-// }
-
-
-//   if (list[x][node][next] === null){
-
-//   }
-
-
-// {
-//   data: 1, next: {
-//     data: 2, next:{
-//       data: 17, next:{
-//        data: 4, next: null;
-//     }
-//    }
-//  }
-// }
