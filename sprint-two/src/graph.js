@@ -18,7 +18,7 @@ Graph.prototype.addNode = function(node) {                  // Time complexity: 
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {                 // Time complexity: O(1)
-  if(this.storage.hasOwnProperty(node)){
+  if (this.storage.hasOwnProperty(node)) {
     return true;
   }
   return false;
@@ -26,7 +26,7 @@ Graph.prototype.contains = function(node) {                 // Time complexity: 
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {                 // Time complexity: O(n)
-  for (var x in this.storage[node]){
+  for (var x in this.storage[node]) {
     delete this.storage[x][node];
   }
 
