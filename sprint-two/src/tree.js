@@ -19,15 +19,15 @@ treeMethods.contains = function(target) {    // Complexity: O(n^n)
   var check = false;
 
   var searchTree = function(tree) {
-    if( tree.value === target) {
+    if ( tree.value === target ) {
       check = true;
       return check;
     } else {
-      for(var i = 0; i < tree.children.length; i++) {
+      for (var i = 0; i < tree.children.length; i++) {
         searchTree(tree.children[i]);
       }
     }
-  }
+  };
 
   searchTree(this);
   return check;
