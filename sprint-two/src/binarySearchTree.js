@@ -7,6 +7,10 @@ var BinarySearchTree = function(value) {
   newTree.insert = function(number){                // O(log n)
     // check if bigger or smaller and check if left or right is full, insert into left or right
     // call insert on left or right
+    if ( typeof number !== 'number' ) {
+      return "Only Accepts Numbers";
+    }
+
     if ( number < newTree.value ) {
       if ( newTree.left !== null ) {
         newTree.left.insert(number);

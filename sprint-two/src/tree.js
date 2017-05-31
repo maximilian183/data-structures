@@ -12,7 +12,11 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {    // Complexity: O(1)
-  this.children.push(Tree(value));
+  if (typeof value === 'number'){
+    this.children.push(Tree(value));
+  }else{
+    return false;
+  }
 };
 
 treeMethods.contains = function(target) {    // Complexity: O(n^n)

@@ -41,4 +41,10 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('Added Test: should contain only numbers', function() {
+    tree.addChild('hello');
+    tree.addChild(6);
+    expect(tree.contains('hello')).to.equal(false);
+  });
+
 });

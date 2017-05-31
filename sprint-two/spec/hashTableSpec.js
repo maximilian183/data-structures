@@ -29,13 +29,6 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Bob')).to.equal('Barker');
   });
 
-  it('should overwrite values that have the same key and not push unnecessary tuples to array', function() {
-    hashTable.insert('Jimmy', 'Hansen');  //returns 6
-    hashTable.insert('Bobby', 'Barker');  //returns 6
-    hashTable.insert('Bobby', 'Kennedy');  //returns 6
-    expect(hashTable._storage.get(6).length).to.equal(2);
-  });
-
   it('should not contain values that were removed', function() {
     hashTable.insert('Steven', 'Tyler');
     hashTable.remove('Steven');
@@ -52,6 +45,13 @@ describe('hashTable', function() {
     expect(hashTable.retrieve(v1)).to.equal(v1);
     expect(hashTable.retrieve(v2)).to.equal(v2);
     window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
+  it('Added Test: should overwrite values that have the same key and not push unnecessary tuples to array', function() {
+    hashTable.insert('Jimmy', 'Hansen');  //returns 6
+    hashTable.insert('Bobby', 'Barker');  //returns 6
+    hashTable.insert('Bobby', 'Kennedy');  //returns 6
+    expect(hashTable._storage.get(6).length).to.equal(2);
   });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)

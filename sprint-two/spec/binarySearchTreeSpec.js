@@ -36,4 +36,28 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
   });
+
+  it('Added Test: should not contain strings', function() {
+    binarySearchTree.insert('hello');
+    expect(binarySearchTree.contains('hello')).to.equal(false);
+  });
+
+  it('Added Test: should not contain objects', function() {
+    binarySearchTree.insert({});
+    expect(binarySearchTree.contains({})).to.equal(false);
+  });
+
+  it('Added Test: should not contain arrays', function() {
+    binarySearchTree.insert([]);
+    expect(binarySearchTree.contains([])).to.equal(false);
+  });
+
+  it('Added Test: should not contain booleans', function() {
+    binarySearchTree.insert(false);
+    expect(binarySearchTree.contains(false)).to.equal(false);
+  });
+
+  it('Added Test: should only accept numbers', function() {
+    expect(binarySearchTree.insert('one')).to.equal('Only Accepts Numbers');
+  });
 });

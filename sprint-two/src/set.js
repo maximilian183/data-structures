@@ -10,7 +10,9 @@ setPrototype.add = function(item) {           //Time Compleity: O(1)
   if (this.contains(item)) {
     //do nothing
   } else {
+    if ( typeof item === 'string') {
     this._storage.push(item);
+  }
   }
 };
 

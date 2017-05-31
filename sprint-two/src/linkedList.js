@@ -4,13 +4,15 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {    // O(1) time complexity
-    var tailNode = Node(value);
-    if ( list.head === null && list.tail === null) {
-      list.head = tailNode;
-    } else {
-      list.tail.next = tailNode;
+    if (typeof value === 'number'){
+      var tailNode = Node(value);
+      if ( list.head === null && list.tail === null) {
+        list.head = tailNode;
+      } else {
+        list.tail.next = tailNode;
+      }
+      list.tail = tailNode;
     }
-    list.tail = tailNode;
   };
 
   list.removeHead = function() {    // O(1) time complexity

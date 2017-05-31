@@ -1,13 +1,11 @@
 // Instantiate a new graph
 var Graph = function() {
   this.storage = {};
-                    /* { { 1: [3, 4, 5] } ,
-                         2: [3, 4],  }
-                         {storage: {
+                    /* {storage: {
                           1: {5: true, 7: true},
                           5: {1: true},
                           7: {},
-                         }}
+                        }}
                     */
 };
 

@@ -51,5 +51,11 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('Added Test: should contain only numbers', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail('hello');
+    expect(linkedList.contains('hello')).to.equal(false);
+  });
+
   // add more tests here to test the functionality of linkedList
 });
