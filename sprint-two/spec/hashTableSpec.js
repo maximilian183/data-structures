@@ -29,6 +29,12 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Bob')).to.equal('Barker');
   });
 
+  it('should overwrite values that have the same key and not push unnecessary tuples to array', function() {
+    hashTable.insert('Bob', 'Loblaw');
+    hashTable.insert('Bob', 'Barker');
+    expect(hashTable.retrieve('Bob')).to.equal('Barker');
+  });
+
   it('should not contain values that were removed', function() {
     hashTable.insert('Steven', 'Tyler');
     hashTable.remove('Steven');
