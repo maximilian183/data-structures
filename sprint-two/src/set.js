@@ -17,7 +17,7 @@ setPrototype.add = function(item) {           //Time Compleity: O(1)
 setPrototype.contains = function(item) {           //Time Complexity: O(n)
   for (var i = 0; i < this._storage.length; i++) {
     if( this._storage[i] === item) {
-      return true
+      return true;
     }
   }
   return false;
