@@ -47,37 +47,50 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
-  it('Added Test: should overwrite values that have the same key and not push unnecessary tuples to array', function() {
-    hashTable.insert('Jimmy', 'Hansen');  //returns 6
-    hashTable.insert('Bobby', 'Barker');  //returns 6
-    hashTable.insert('Bobby', 'Kennedy');  //returns 6
-    expect(hashTable._storage.get(6).length).to.equal(2);
-  });
+  // it('Added Test: should overwrite values that have the same key and not push unnecessary tuples to array', function() {
+  //   hashTable.insert('Jimmy', 'Hansen');  //returns 6
+  //   hashTable.insert('Bobby', 'Barker');  //returns 6
+  //   hashTable.insert('Bobby', 'Kennedy');  //returns 6
+  //   expect(hashTable._storage.get(6).length).to.equal(2);
+  // });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
-  xit ('should double in size when needed', function() {
+  it ('should double in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];
       hashTable.insert(firstName, lastName);
       expect(hashTable.retrieve(firstName)).to.equal(lastName);
     });
+    // console.log(hashTable._count);
+    // hashTable.balance();
     expect(hashTable._limit).to.equal(16);
+    // console.log(hashTable._count);
   });
 
-  xit ('should halve in size when needed', function() {
+  it ('should halve in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];
       hashTable.insert(firstName, lastName);
       expect(hashTable.retrieve(firstName)).to.equal(lastName);
     });
+    //console.log(hashTable._count);
+    // hashTable.balance();
     expect(hashTable._limit).to.equal(16);
     hashTable.remove('George');
     hashTable.remove('Dr.');
     hashTable.remove('Steven');
     hashTable.remove('John');
     hashTable.remove('Mr.');
+    //console.log(hashTable._count);
+
     expect(hashTable._limit).to.equal(8);
+  });
+
+  it ('should halve in size if fewer than 25% are inserted', function() {
+    hashTable.insert('Harsh', 'Sikka');
+    hashTable.balance();
+    expect(hashTable._limit).to.equal(4);
   });
 });
