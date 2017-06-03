@@ -98,7 +98,7 @@ HashTable.prototype.balance = function() {
       }
     }
   }
-}
+};
 
 /*
  * Complexity: What is the time complexity of the above functions?

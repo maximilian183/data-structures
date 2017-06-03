@@ -3,6 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
+  newTree.parent = null;
   newTree.children = [];  // fix me
   _.extend(newTree, treeMethods);
 
@@ -13,9 +14,36 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {    // Complexity: O(1)
   if (typeof value === 'number'){
-    this.children.push(Tree(value));
+    var child = Tree(value);
+    child.parent = this;
+    this.children.push(child);
   }else{
     return false;
+  }
+};
+
+treeMethods.removeFromParent = function () {
+
+  if (this.parent !== null) {
+    var parentNode = this.parent;
+    this.parent = null;
+
+    for (var i = 0; i < parentNode.children.length; i++) {
+      if (parentNode.children[i] === this) {
+        // this comparison works because they are referencing the same object in memory
+        parentNode.children.splice(i,1);
+      }
+    }
+    return parentNode.value;
+  } else {
+    return 'no parent found';
+  }
+}
+
+treeMethods.traverse = function (cb) {
+  cb(this.value);
+  for (var i = 0; i < this.children.length; i++) {
+    this.children[i].traverse(cb);
   }
 };
 
