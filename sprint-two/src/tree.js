@@ -38,7 +38,7 @@ treeMethods.removeFromParent = function () {
   } else {
     return 'no parent found';
   }
-}
+};
 
 treeMethods.traverse = function (cb) {
   cb(this.value);

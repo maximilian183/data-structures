@@ -1,36 +1,21 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = []; // fix me
+  set._storage = {}; // fix me
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item) {           //Time Compleity: O(1)
-  if (this.contains(item)) {
-    //do nothing
-  } else {
-    if ( typeof item === 'string') {
-      this._storage.push(item);
-    }
-  }
+  this._storage[item] = item;
 };
 
-setPrototype.contains = function(item) {           //Time Complexity: O(n)
-  for (var i = 0; i < this._storage.length; i++) {
-    if( this._storage[i] === item) {
-      return true;
-    }
-  }
-  return false;
+setPrototype.contains = function(item) {           //Time Complexity: O(1)
+  return Boolean(this._storage[item]);
 };
 
-setPrototype.remove = function(item) {           //Time Complexity: O(n)
-  for (var i = 0; i < this._storage.length; i++) {
-    if ( this._storage[i] === item) {
-      this._storage.splice(i,1);
-    }
-  }
+setPrototype.remove = function(item) {           //Time Complexity: O(1)
+  delete this._storage[item];
   return this._storage;
 };
 

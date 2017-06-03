@@ -26,26 +26,17 @@ describe('set', function() {
 
   //added tests:
 
-  it('Added Test: should not contain numbers', function() {
+  it('should store objects of any type', function() {
+    var obj = {};
+    var arr = [];
+    set.add('Mel Gibson');
     set.add(1);
-    expect(set.contains(1)).to.equal(false);
+    set.add(obj);
+    set.add(arr);
+    expect(set.contains('Mel Gibson')).to.equal(true);
+    expect(set.contains(1)).to.equal(true);
+    expect(set.contains(obj)).to.equal(true);
+    expect(set.contains(arr)).to.equal(true);
   });
-
-  it('Added Test: should not contain objects', function() {
-    set.add({});
-    expect(set.contains({})).to.equal(false);
-  });
-
-  it('Added Test: should not contain arrays', function() {
-    set.add([]);
-    expect(set.contains([])).to.equal(false);
-  });
-
-  it('Added Test: should not contain booleans', function() {
-    set.add(true);
-    expect(set.contains(true)).to.equal(false);
-  });
-
-
 
 });
